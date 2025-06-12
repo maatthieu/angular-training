@@ -1,0 +1,16 @@
+<p>component-basic works!</p>
+
+<p>interpolation: {{counter}}</p>
+
+property binding:
+<ul>
+    <li>
+        <span [class]="counter%2 == 0 ? 'underlined' : ''">pair</span>
+    </li>
+    <li>
+        <span [class]="counter%2 != 0 ? 'underlined' : ''">impair</span>
+    </li>
+</ul>
+
+event binding:
+<button (click)="increment($event)">swap</button>

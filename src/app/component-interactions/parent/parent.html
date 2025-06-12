@@ -1,0 +1,8 @@
+<h2>parent works!</h2>
+
+<app-child [person]="user" (getOlder)="onOlder($event)">
+    <p>It's me, Mario</p>
+    <a href="https://inetum.com" target="_blank">Inetum</a>
+</app-child>
+<app-child [person]="{ name: 'toto', age: 8}"/>
+<app-child />

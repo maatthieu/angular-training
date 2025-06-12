@@ -1,0 +1,20 @@
+<h2>child works!</h2>
+
+<ul>
+    <li>name: {{ person()?.name }}</li>
+    <li>name: {{ person()?.age }}</li>
+    <li>
+        input:
+        <button (click)="onGetOlder(1)">+1</button>
+        <button (click)="onGetOlder(5)">+5</button>
+    </li>
+    <li>
+        content projection;
+        <ng-content select="p"/>
+    </li>
+    <li>
+        service:
+        light on ? {{ lightBulbService.isOn }}
+        <button (click)="lightBulbService.toggle()">toggle</button>
+    </li>
+</ul>

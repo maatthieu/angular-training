@@ -1,0 +1,18 @@
+<p>routing works!</p>
+
+<ul>
+    <li>
+        <a href="/page1">Page 1 (href)</a>
+    </li>
+    <li>
+        <a routerLink="/page1">Page 1 (routerLink)</a>
+    </li>
+    <li>
+        <a routerLink="/page2/10">Page 2 (routerLink)</a>
+    </li>
+    <li>
+        <button (click)="goToPage2()">Go go go --></button>
+    </li>
+</ul>
+
+<router-outlet/>
