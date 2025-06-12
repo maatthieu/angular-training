@@ -1,0 +1,29 @@
+<h2>reactive-form works!</h2>
+
+<form [formGroup]="personForm" (submit)="onSubmit()">
+    <input type="text" name="name" formControlName="name" placeholder="Name ?"/><br/>
+        @if (nameControl?.invalid && (nameControl?.touched || nameControl?.dirty)) {
+            <p style="color: red;">
+                @if (nameControl?.hasError('required')) {
+                    The name is required
+                }
+                @if (nameControl?.hasError('minlength')) {
+                    The min length is 3
+                }
+            </p>
+        }
+
+    <input type="number" name="age" formControlName="age" placeholder="Age ?"/><br/>
+        @if (ageControl?.invalid && (ageControl?.touched || ageControl?.dirty)) {
+            <p style="color: red;">
+                @if (ageControl?.hasError('min')) {
+                    Should be greater equals to 0
+                }
+                @if (ageControl?.hasError('max')) {
+                    Should be lower equals to 150
+                }
+            </p>
+        }
+
+    <button [disabled]="personForm.invalid && (personForm?.touched || personForm?.dirty)">submit</button>
+</form>
