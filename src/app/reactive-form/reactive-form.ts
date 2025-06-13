@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+
+const notAdmin: ValidatorFn = ac =>
+  (ac.value as string).includes('admin') ?
+  { notAdmin: { message:'Pirate !' }} : null;
 
 @Component({
   selector: 'app-reactive-form',
@@ -10,7 +14,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class ReactiveForm {
 
   personForm = new FormGroup({
-    name: new FormControl('', [Validators.minLength(3), Validators.required]),
+    name: new FormControl('', [Validators.minLength(3), Validators.required, notAdmin]),
     age: new FormControl(0, [Validators.min(0), Validators.max(150)])
   });
 
